@@ -16,6 +16,7 @@ namespace _1SCodeAnalyze
 
 			var dir=new DirectoryInfo(ИмяПапки);// папка с файлами 
 			var files = new List<FileInfo>(); // список для имен файлов 
+
             ПолучитьФайлыРекурсивно(dir, files);
 			АнализаторКода1С Анализ = new АнализаторКода1С(files);
 			
