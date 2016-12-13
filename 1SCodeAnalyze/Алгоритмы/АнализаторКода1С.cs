@@ -26,7 +26,7 @@ namespace _1SCodeAnalyze
         {
             foreach (FileInfo Файл in files)
             {
-                String ИмяМодуля = Файл.Name.Replace(".Модуль.txt", "").Replace(".txt", "");
+                String ИмяМодуля = Path.GetDirectoryName(Файл.FullName).Substring(3).Replace('\\', '.') + '.' + Файл.Name;
                 Модуль МодульОбъекта = new Модуль(Файл);
                 if (!Модули.ContainsKey(ИмяМодуля))
                 {
@@ -37,6 +37,7 @@ namespace _1SCodeAnalyze
 			//foreach (KeyValuePair<String, Модуль> Объект in Модули)НайтиВсеФункцииИПроцедуры(Объект.Value);
             int КоличествоМодулей = Модули.Count;
 			foreach (KeyValuePair<String, Модуль> Объект in Модули){
+                Console.WriteLine(Объект.Key);
                 АнализироватьЦиклы(Объект.Value);
                 if (Объект.Value.ЕстьОшибки)
                 {

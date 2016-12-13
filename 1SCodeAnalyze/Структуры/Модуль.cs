@@ -46,8 +46,7 @@ namespace _1SCodeAnalyze.Структуры
 
         private String СчитатьСодержимоеФайла(FileInfo file)
         {
-            var Str = file.OpenText();
-            return Str.ReadToEnd();
+            return File.ReadAllText(file.FullName, Encoding.GetEncoding(1251));
         }
 
 
